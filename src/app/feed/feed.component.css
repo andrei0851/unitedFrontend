@@ -1,0 +1,15 @@
+.feed {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-10%, 1%);
+}

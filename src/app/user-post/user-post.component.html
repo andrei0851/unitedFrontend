@@ -1,0 +1,15 @@
+<div class="card" style="width:500px">
+  <img class="card-img-top" [src]="userPost.imageLink" alt="Card image">
+  <div class="button">
+    <h5>{{userPost.likes}} Likes.</h5>
+    <button *ngIf="!deletable" class="btn btn-primary" (click)="like()"><i class="fa fa-thumbs-up"></i> Like </button>
+      <button *ngIf="!deletable" class="btn btn-primary" (click)="follow()"><i class="fa fa-follow"></i> Follow/Unfollow {{ userPost.userName }}</button>
+    <button *ngIf="deletable" class="btn btn-primary" (click)="delete()"><i class="fa fa-follow"></i> Delete Post</button>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title">Post created by: </h6>
+    <h5> {{ userPost.userName }} </h5>
+    <p class="card-text">{{ userPost.text }}</p>
+  </div>
+</div>
+

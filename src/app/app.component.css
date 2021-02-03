@@ -1,0 +1,22 @@
+/*@media screen and (min-width: 992px) {*/
+/*  .card-paragraph {*/
+/*    color: bisque;*/
+/*  }*/
+/*  .card-paragraph {*/
+/*    color: red;*/
+/*  }*/
+/*}*/
+
+/*@media screen and (max-width: 500px) {*/
+/*  .card-paragraph {*/
+/*    color: black;*/
+/*  }*/
+/*}*/
+
+.header {
+  text-align: center;
+}
+
+body{
+  background-color: dimgrey;
+}

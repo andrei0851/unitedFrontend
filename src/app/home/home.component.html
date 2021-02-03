@@ -1,0 +1,27 @@
+<div class="container">
+  <div *ngIf="!token">
+    <img src="https://i.postimg.cc/nL9y8M8v/26794-6-welcome-transparent.png">
+  </div>
+</div>
+
+
+  <div class="form" *ngIf="token">
+    <div class="col-6">
+      <h2>Add a post</h2>
+
+      <form [formGroup]="postForm">
+        <div class="form-group">
+          <label>Description of the post: </label>
+          <input type="text" formControlName="text" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label>Link of the image. We recommend using <a href="https://postimages.org/">PostImg</a> and paste the direct link.</label>
+          <input type="text" formControlName="imglink" class="form-control" required>
+        </div>
+      </form>
+
+
+      <button type="submit" [routerLink]="'feed'" class="btn btn-primary" (click)="addPost()">Submit </button>
+    </div>
+  </div>

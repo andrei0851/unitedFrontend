@@ -1,0 +1,6 @@
+<div class="feed">
+  <h2> Welcome {{ this.profileName }} to your profile.</h2>
+  <h4>Your Posts</h4>
+  <app-user-post *ngFor="let userPost of userPosts" [userPost]="userPost">
+  </app-user-post>
+</div>
