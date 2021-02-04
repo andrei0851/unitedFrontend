@@ -13,25 +13,25 @@ import {UserService} from '../services/user.service';
 export class UserPostComponent implements OnInit {
   @Input() userPost: UserPost;
 
-  deletable :boolean
+  deletable: boolean;
 
   constructor(private router: Router, private userPostsService: UserPostsService, private userService: UserService) {
   }
 
 
   ngOnInit(): void {
-    if(this.userPost.userName == window.localStorage.getItem('UserName')){
-      this.deletable=true;
+    if (this.userPost.userName == window.localStorage.getItem('UserName')){
+      this.deletable = true;
     }
   }
 
   like() {
-    this.userPostsService.like(this.userPost.id.toString(),window.localStorage.getItem('UserName')).subscribe((response: any) => {
-      if(response.status == 'liked'){
-        window.alert('Post Liked.')
+    this.userPostsService.like(this.userPost.id.toString(), window.localStorage.getItem('UserName')).subscribe((response: any) => {
+      if (response.status == 'liked'){
+        this.userPost.likes++;
       }
-      if(response.status == 'unliked'){
-        window.alert('Post Unliked.')
+      if (response.status == 'unliked'){
+        window.alert('Post Unliked.');
       }
       window.location.reload();
     });
@@ -40,7 +40,7 @@ export class UserPostComponent implements OnInit {
   delete() {
     this.userPostsService.delete(this.userPost.id.toString()).subscribe((response: any) => {
       if (response.status == 'Success') {
-        window.alert('Post deleted.')
+        window.alert('Post deleted.');
       }
       window.location.reload();
     });
@@ -49,16 +49,16 @@ export class UserPostComponent implements OnInit {
   follow() {
     this.userService.follow(window.localStorage.getItem('UserName'), this.userPost.userName).subscribe((response: any) => {
       if (response.status == 'follow') {
-        window.alert('User Followed.')
+        window.alert('User Followed.');
       }
       if (response.status == 'unfollow') {
-        window.alert('User Unfollowed.')
+        window.alert('User Unfollowed.');
       }
       if (response.status == 'sameUser') {
-        window.alert('You cannot follow yourself.')
+        window.alert('You cannot follow yourself.');
       }
       window.location.reload();
-    })
+    });
   }
 
 }
