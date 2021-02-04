@@ -27,8 +27,8 @@ export class UserPostsService {
   getAllPosts(){
     return this.http.get(`${this.baseUrl}${this.resourceUrl}` + "/getAllPosts");
 }
-  like(postID: string){
-    const params: HttpParams = new HttpParams().set('postID', postID);
+  like(postID: string, UserName: string){
+    const params: HttpParams = new HttpParams().set('postID', postID).set('UserName', UserName);
     return this.http.post(`${this.baseUrl}${this.resourceUrl}` + "/like",null, {params: params});
   }
 

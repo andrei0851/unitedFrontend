@@ -26,15 +26,21 @@ export class UserPostComponent implements OnInit {
   }
 
   like() {
-    this.userPostsService.like(this.userPost.id.toString()).subscribe((response: any) => {
+    this.userPostsService.like(this.userPost.id.toString(),window.localStorage.getItem('UserName')).subscribe((response: any) => {
+      if(response.status == 'liked'){
+        window.alert('Post Liked.')
+      }
+      if(response.status == 'unliked'){
+        window.alert('Post Unliked.')
+      }
       window.location.reload();
     });
   }
 
   delete() {
     this.userPostsService.delete(this.userPost.id.toString()).subscribe((response: any) => {
-      if (response.status == "Success") {
-        window.alert("Post deleted.")
+      if (response.status == 'Success') {
+        window.alert('Post deleted.')
       }
       window.location.reload();
     });
@@ -42,14 +48,14 @@ export class UserPostComponent implements OnInit {
 
   follow() {
     this.userService.follow(window.localStorage.getItem('UserName'), this.userPost.userName).subscribe((response: any) => {
-      if (response.status == "follow") {
-        window.alert("User Followed.")
+      if (response.status == 'follow') {
+        window.alert('User Followed.')
       }
-      if (response.status == "unfollow") {
-        window.alert("User Unfollowed.")
+      if (response.status == 'unfollow') {
+        window.alert('User Unfollowed.')
       }
-      if (response.status == "sameUser") {
-        window.alert("You cannot follow yourself.")
+      if (response.status == 'sameUser') {
+        window.alert('You cannot follow yourself.')
       }
       window.location.reload();
     })
